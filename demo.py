@@ -8,7 +8,7 @@ def clearscreen():
     import os
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def printbychar(msg, delay=0.05, maxlength=-1):
+def printbychar(msg, delay=0.1, maxlength=-1):
     i=0
     for char in msg:
         print(char,end="",flush=True)
@@ -19,12 +19,12 @@ def printbychar(msg, delay=0.05, maxlength=-1):
             print()
     print()
     
-def printbyword(msg, delay=0.05):
+def printbyword(msg, delay=0.1):
     for word in msg.split():
         print(word,end=" ",flush=True)
         time.sleep(delay)
 
-def printbyline(msg, delay=0.05):
+def printbyline(msg, delay=0.1):
     for line in msg.split("\n"):
         print(line,flush=True)
         time.sleep(delay)
@@ -33,14 +33,25 @@ def printbyline(msg, delay=0.05):
     
 def test():
     clearscreen()
-    message = "Hello, this is an animated message!"
+    message = "This is a message printed char by char!"
     printbychar(message)
+    print()
+    time.sleep(1)
+    message = "This is another message printed word by word!"
+    printbyword(message, 0.1)
 
-    message = "This is another message with a longer delay."
-    printbychar(message, 0.1)
-
-    message = "A very long wall of text text text text text text text text text text !"
-    printbychar(message, 0.05, 20)
+    time.sleep(1)
+    print()
+    message = \
+"""
+This is a wall of text printed line by line.
+This is a wall of text printed line by line.
+This is a wall of text printed line by line.
+This is a wall of text printed line by line.
+This is a wall of text printed line by line.
+This is a wall of text printed line by line.
+"""
+    printbyline(message, 0.1)
     
 def mothersdaysimple():
     import time
